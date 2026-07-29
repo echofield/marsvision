@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MARS is a creative practice for sound, place and signal.">
+<meta name="theme-color" content="#f2eee6">
+<title>MARS · Creative Practice</title>
+<link rel="stylesheet" href="assets/fonts/plex-mono.css">
+<style>
+:root {
+  --paper:#f2eee6;
+  --paper-deep:#e9e4d9;
+  --paper-edge:#ded8ca;
+  --ink:#16151a;
+  --ink-dim:#55525c;
+  --ink-soft:#656069;
+  --rule:#cfc8ba;
+  --indigo:#232c73;
+  --blue:#2f56b5;
+  --cyan:#3f93b8;
+  --violet:#4a2f78;
+  --coral:#d4553a;
+  --void:#141218;
+  --void-ink:#e6e1d3;
+  --void-dim:#a39e91;
+  --void-rule:#2b2733;
+  --accent:var(--indigo);
+  --mono:"IBM Plex Mono",ui-monospace,"Input Mono",monospace;
+  --gutter:clamp(22px,7vw,110px);
+  --band:clamp(76px,10vw,152px);
+  --display:clamp(70px,8.2vw,124px);
+  --head:clamp(31px,5.2vw,70px);
+  --sub:clamp(19px,2.5vw,30px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{scroll-behavior:smooth;background:var(--paper);-webkit-text-size-adjust:100%}
+body{
+  min-height:100vh;background:var(--paper);color:var(--ink);
+  font-family:var(--mono);font-size:14px;line-height:1.7;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--indigo);color:var(--paper)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:0;z-index:30;padding:12px 18px;background:var(--paper);border:1px solid var(--ink)}
+.skip:focus{left:0}
+
+.mast{
+  position:sticky;top:0;z-index:20;min-height:64px;padding:0 var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+  background:rgba(242,238,230,.96);border-bottom:1px solid var(--ink);
+}
+.wordmark{display:flex;align-items:center;gap:13px;font-size:15px;font-weight:500;letter-spacing:.26em;white-space:nowrap}
+.wordmark small{padding-left:13px;border-left:1px solid var(--rule);color:var(--ink-soft);font-size:9px;letter-spacing:.2em}
+.nav{display:flex;align-items:center;gap:clamp(14px,2.5vw,34px);color:var(--ink-dim);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.nav a:hover{color:var(--indigo)}
+
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent);font-size:10px;font-weight:500;letter-spacing:.25em;line-height:1;text-transform:uppercase}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor}
+.display{font-size:var(--display);font-weight:400;line-height:.9;letter-spacing:.12em}
+.head{font-size:var(--head);font-weight:400;line-height:1.04;letter-spacing:.005em}
+.sub{font-size:var(--sub);font-weight:400;line-height:1.42}
+.body{max-width:62ch;color:var(--ink-dim);line-height:1.85}
+.body+.body{margin-top:20px}
+.annotation{color:var(--ink-soft);font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+
+.hero{
+  min-height:min(820px,calc(100svh - 64px));padding:clamp(70px,9vw,132px) var(--gutter) clamp(40px,5vw,70px);
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;
+  column-gap:clamp(32px,5vw,82px);border-bottom:1px solid var(--ink);overflow:hidden;
+}
+.hero-copy{position:relative;z-index:2}
+.hero-copy .display{margin-top:32px}
+.hero-copy .sub{max-width:26ch;margin-top:42px}
+.hero-copy .body{max-width:48ch;margin-top:25px}
+.hero-art-wrap{position:relative;aspect-ratio:5/6;margin-right:calc(var(--gutter)*-1)}
+.hero-art{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  transform:scale(1.13);opacity:.78;mix-blend-mode:multiply;pointer-events:none;user-select:none;
+}
+.hero-ledger{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:clamp(38px,5vw,64px);padding-top:16px;border-top:1px solid var(--rule)}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.cta{
+  min-height:52px;padding:0 25px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--ink);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  transition:background .16s,color .16s,border-color .16s;
+}
+.cta:hover{background:var(--ink);color:var(--paper)}
+.cta--primary{background:var(--ink);color:var(--paper)}
+.cta--primary:hover{background:var(--indigo);border-color:var(--indigo)}
+.textlink{display:inline-flex;margin-top:34px;padding-bottom:4px;border-bottom:1px solid currentColor;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+.textlink:hover{color:var(--accent)}
+.textlink[aria-disabled="true"]{color:var(--ink-soft);border-bottom-color:var(--rule);pointer-events:none}
+
+.band{padding:var(--band) var(--gutter);border-bottom:1px solid var(--rule)}
+.band--deep{background:var(--paper-deep)}
+.band-grid{display:grid;grid-template-columns:minmax(180px,.42fr) minmax(0,1fr);gap:clamp(34px,7vw,118px)}
+.band-main .head{max-width:16ch;margin-top:17px}
+.band-main .body{margin-top:34px}
+.index-no{color:var(--ink-soft);font-size:11px;letter-spacing:.18em}
+.index-meta{margin-top:20px;color:var(--ink-soft);font-size:9px;letter-spacing:.14em;line-height:1.8;text-transform:uppercase}
+
+.practice .head{max-width:18ch}
+.practice .body{max-width:69ch}
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(52px,7vw,86px);border-top:1px solid var(--rule)}
+.principle{min-height:190px;padding:24px 28px 20px 0;border-right:1px solid var(--rule)}
+.principle+.principle{padding-left:28px}
+.principle:last-child{border-right:0}
+.principle b{display:block;margin-bottom:18px;color:var(--accent);font-size:10px;font-weight:500;letter-spacing:.19em}
+.principle p{max-width:29ch;color:var(--ink-dim)}
+
+.project-flag{display:flex;flex-wrap:wrap;gap:7px 18px;margin-top:38px;padding-top:15px;border-top:1px solid var(--rule)}
+.project-flag span{color:var(--ink-soft);font-size:9px;letter-spacing:.13em;text-transform:uppercase}
+
+.plate{
+  --ink:var(--void-ink);--ink-dim:var(--void-dim);--ink-soft:#706b64;--rule:var(--void-rule);--accent:var(--cyan);
+  padding:var(--band) var(--gutter);background:var(--void);color:var(--void-ink);border-bottom:1px solid var(--void);
+}
+.plate-head{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:clamp(36px,7vw,110px);margin-bottom:clamp(44px,6vw,78px)}
+.plate .head{max-width:14ch;margin-top:17px}
+.plate .body{align-self:end}
+.instrument-frame{overflow:auto;border:1px solid var(--void-rule)}
+.instrument-frame img{width:100%;min-width:720px}
+.caption{padding-top:10px;color:#706b64;font-size:9px;letter-spacing:.13em;text-transform:uppercase}
+
+.diagram{position:relative;min-height:280px;margin-top:58px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.diagram-line{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--rule)}
+.node{position:absolute;top:50%;width:12px;height:12px;transform:translate(-50%,-50%);background:var(--paper);border:1px solid var(--ink)}
+.node::after{position:absolute;top:20px;left:50%;transform:translateX(-50%);width:max-content;max-width:22ch;color:var(--ink-soft);font-size:9px;letter-spacing:.12em;text-align:center;text-transform:uppercase;content:attr(data-label)}
+.node--1{left:7%}.node--2{left:31%}.node--3{left:58%}.node--4{left:84%}
+.node--2,.node--4{background:var(--indigo);border-color:var(--indigo)}
+
+.archive-head{display:grid;grid-template-columns:.42fr 1fr;gap:clamp(34px,7vw,118px);margin-bottom:56px}
+.archive-head .head{max-width:17ch;margin-top:17px}
+.rows{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:58px minmax(180px,.85fr) minmax(220px,1.1fr) auto;gap:24px;padding:24px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.row-no,.row-type,.row-year{color:var(--ink-soft);font-size:9px;letter-spacing:.13em;text-transform:uppercase}
+.row-name{font-size:clamp(17px,2vw,25px);line-height:1.2}
+
+.statement{background:var(--indigo);color:var(--paper);border-bottom:0}
+.statement .eyebrow{color:#aeb7ff}
+.statement .head{max-width:19ch}
+.statement .body{color:#c7c8d5}
+.statement-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(220px,.55fr);gap:clamp(46px,8vw,130px)}
+.statement-note{align-self:end;padding-top:16px;border-top:1px solid rgba(242,238,230,.35);color:#c7c8d5;font-size:11px;line-height:1.8}
+
+.contact{min-height:82svh;display:flex;align-items:center}
+.contact-inner{width:100%}
+.contact .head{max-width:17ch;margin-top:17px}
+.contact .body{margin-top:34px}
+.contact-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:62px;border-top:1px solid var(--ink)}
+.contact-links a{padding:22px 20px 22px 0;border-bottom:1px solid var(--rule);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.contact-links a:hover{color:var(--indigo)}
+
+.foot{padding:30px var(--gutter);display:flex;justify-content:space-between;gap:24px;background:var(--paper-deep);color:var(--ink-soft);font-size:9px;letter-spacing:.13em;text-transform:uppercase}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0;gap:34px}
+  .hero-art-wrap{aspect-ratio:5/4}
+  .band-grid,.plate-head,.archive-head,.statement-grid{grid-template-columns:1fr}
+  .principles{grid-template-columns:1fr}
+  .principle{min-height:0;border-right:0;border-bottom:1px solid var(--rule);padding:25px 0}
+  .principle+.principle{padding-left:0}
+}
+@media(max-width:620px){
+  .mast{min-height:58px}.wordmark small{display:none}.nav a:not(:last-child){display:none}
+  .display{font-size:clamp(56px,20vw,90px)}
+  .hero-art-wrap{margin-right:calc(var(--gutter)*-.55)}
+  .actions{flex-direction:column}.cta{width:100%}
+  .row{grid-template-columns:32px 1fr auto}.row-type{display:none}
+  .contact-links{grid-template-columns:1fr}
+  .foot{flex-direction:column}
+  .diagram{min-height:240px}.node::after{max-width:11ch}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.001ms!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">SKIP TO CONTENT</a>
+
+<header class="mast">
+  <a class="wordmark" href="#"><span>MARS</span><small>CREATIVE PRACTICE</small></a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#instruments">Instruments</a>
+    <a href="#selected">Selected work</a>
+    <a href="#statement">Statement</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">CREATIVE PRACTICE · PARIS</p>
+      <h1 class="display" id="hero-title">MARS</h1>
+      <p class="sub">A creative practice for sound, place and signal.</p>
+      <p class="body">We build the form a question requires — instruments that can be entered, operated and returned to.</p>
+      <div class="actions">
+        <a class="cta cta--primary" href="https://ifah-inst.pages.dev/" target="_blank" rel="noopener noreferrer">ENTER SOMA</a>
+        <a class="cta" href="mailto:martial.foe@gmail.com">BEGIN A CONVERSATION</a>
+      </div>
+    </div>
+    <div class="hero-art-wrap" aria-hidden="true">
+      <img class="hero-art" src="assets/brand/soma-cymatic-field.png" alt="" width="1024" height="1024">
+    </div>
+    <p class="hero-ledger annotation">
+      <span>SOUND</span><span>PLACE</span><span>SIGNAL</span><span>PARIS · WORKING INTERNATIONALLY</span>
+    </p>
+  </section>
+
+  <section class="band practice" aria-labelledby="practice-title">
+    <div class="band-grid">
+      <div>
+        <p class="index-no">P·00</p>
+        <p class="index-meta">THE PRACTICE<br>MARS · PARIS · 2026</p>
+      </div>
+      <div class="band-main">
+        <p class="eyebrow">ONE METHOD</p>
+        <h2 class="head" id="practice-title">THE QUESTION COMES FIRST.<br>THE MEDIUM FOLLOWS.</h2>
+        <p class="body">MARS works across sound, public space and signal intelligence. Each project begins where an existing format stops being sufficient. The response is an instrument: a precise system with its own grammar, material and way of being used.</p>
+        <div class="principles">
+          <div class="principle"><b>01 · LOCATE</b><p>Find the question beneath the requested output — the one that changes what must be built.</p></div>
+          <div class="principle"><b>02 · FORM</b><p>Give that question a structure, a vocabulary and a surface someone can operate.</p></div>
+          <div class="principle"><b>03 · RELEASE</b><p>Ship an object that remains legible after the campaign, event or first encounter has passed.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--deep" id="instruments" aria-labelledby="soma-title">
+    <div class="band-grid">
+      <div>
+        <p class="index-no">I·01</p>
+        <p class="index-meta">SOUND<br>SOMA · BY IFAH</p>
+      </div>
+      <div class="band-main">
+        <p class="eyebrow">LIVING SOUND INSTRUMENT</p>
+        <h2 class="head" id="soma-title">LISTENING BECOMES<br>A PLACE.</h2>
+        <p class="body">SOMA is a complete desktop instrument for rooms, practice and composition. Recorded matter is shaped into fields that remain live: playable, guideable and preservable.</p>
+        <p class="body">It runs locally, without an account or a cloud dependency. The instrument carries its own engine; the player shapes the state.</p>
+        <div class="project-flag">
+          <span>ONE ENGINE</span><span>THREE WAYS IN</span><span>LOCAL-FIRST</span><span>FIRST RELEASE · AUGUST 2026</span>
+        </div>
+        <a class="textlink" href="https://ifah-inst.pages.dev/" target="_blank" rel="noopener noreferrer">ENTER SOMA →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="plate" aria-labelledby="plate-title">
+    <div class="plate-head">
+      <div>
+        <p class="eyebrow">THE INSTRUMENT</p>
+        <h2 class="head" id="plate-title">ONE FIELD.<br>THIRTEEN LENSES.</h2>
+      </div>
+      <p class="body">A dense working surface built to be operated. Every lens reads and shapes the same living field.</p>
+    </div>
+    <figure>
+      <div class="instrument-frame">
+        <img src="assets/product/instrument-create.png" alt="The SOMA instrument showing its lens rail, specimen aperture and field readouts." width="1440" height="900">
+      </div>
+      <figcaption class="caption">SOMA · SM-01 · CREATE · PUBLIC INSTRUMENT VIEW</figcaption>
+    </figure>
+  </section>
+
+  <section class="band" aria-labelledby="arche-title">
+    <div class="band-grid">
+      <div>
+        <p class="index-no">I·02</p>
+        <p class="index-meta">PLACE<br>ARCHÉ · PARIS</p>
+      </div>
+      <div class="band-main">
+        <p class="eyebrow">URBAN INSTRUMENT</p>
+        <h2 class="head" id="arche-title">THE CITY BECOMES<br>A SCORE.</h2>
+        <p class="body">ARCHÉ is a physical urban quest, played on foot and authored neighbourhood by neighbourhood. Cards establish the grammar; local guides hold the reading; streets provide the material.</p>
+        <p class="body">The work is not an itinerary laid over a city. It is a way of making attention active — giving participants a structure through which a place can be read, crossed and remembered.</p>
+        <div class="project-flag">
+          <span>PHYSICAL CARDS</span><span>LOCAL AUTHORS</span><span>WALKED EXPERIENCE</span>
+        </div>
+        <span class="textlink" aria-disabled="true">OPENING PRIVATELY —</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--deep" aria-labelledby="ram-title">
+    <div class="band-grid">
+      <div>
+        <p class="index-no">S·03</p>
+        <p class="index-meta">SIGNAL<br>RAMIFICATION · OSINT</p>
+      </div>
+      <div class="band-main">
+        <p class="eyebrow">STRUCTURAL INTELLIGENCE</p>
+        <h2 class="head" id="ram-title">FOLLOW THE SIGNAL<br>UNTIL THE STRUCTURE APPEARS.</h2>
+        <p class="body">Ramification reconstructs the hidden structure of a system from public record: binding constraints, dependency chains and the seams where facts stop reconciling.</p>
+        <p class="body">The work delivers cases, not predictions. The engine remains behind the artifact so the evidence, limits and reasoning stay visible.</p>
+        <div class="diagram" aria-label="Signal to structure">
+          <div class="diagram-line"></div>
+          <span class="node node--1" data-label="PUBLIC SIGNAL"></span>
+          <span class="node node--2" data-label="CONSTRAINT"></span>
+          <span class="node node--3" data-label="DEPENDENCY"></span>
+          <span class="node node--4" data-label="CASE"></span>
+        </div>
+        <a class="textlink" href="mailto:martial.foe@gmail.com?subject=Ramification%20enquiry">BY ENQUIRY →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="selected" aria-labelledby="selected-title">
+    <div class="archive-head">
+      <div><p class="index-no">A·01—06</p><p class="index-meta">SELECTED WORK<br>BEFORE THE INSTRUMENTS</p></div>
+      <div><p class="eyebrow">THE PERCEPTION LABORATORY</p><h2 class="head" id="selected-title">THE WORK THE PRACTICE GREW OUT OF.</h2></div>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="row-no">01</span><span class="row-name">Sweet Dreams</span><span class="row-type">Feature film · original score</span><span class="row-year">2023</span></div>
+      <div class="row"><span class="row-no">02</span><span class="row-name">True Lovers</span><span class="row-type">Album · Lonely Band</span><span class="row-year">2017</span></div>
+      <div class="row"><span class="row-no">03</span><span class="row-name">Burberry · Beats · Nike</span><span class="row-type">Sound and identity · selected work</span><span class="row-year">Selected</span></div>
+      <div class="row"><span class="row-no">04</span><span class="row-name">Salle Pleyel</span><span class="row-type">Musical theatre · composition</span><span class="row-year">2018</span></div>
+      <div class="row"><span class="row-no">05</span><span class="row-name">Francofolies</span><span class="row-type">Live · Lonely Band</span><span class="row-year">2026</span></div>
+      <div class="row"><span class="row-no">06</span><span class="row-name">F.O.C Éditions</span><span class="row-type">Philosophical publishing</span><span class="row-year">Ongoing</span></div>
+    </div>
+  </section>
+
+  <section class="band statement" id="statement" aria-labelledby="statement-title">
+    <div class="statement-grid">
+      <div>
+        <p class="eyebrow">STATEMENT</p>
+        <h2 class="head" id="statement-title">NOT THREE SERVICES.<br>ONE PRACTICE, MOVING THROUGH THREE MATERIALS.</h2>
+      </div>
+      <p class="statement-note">Sound becomes a field.<br>The city becomes a score.<br>A signal becomes a case.<br><br>The recurring act is the same: make structure perceivable, then give someone a way to enter it.</p>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact-inner">
+      <p class="eyebrow">COMMISSIONS · COLLABORATIONS · RESEARCH</p>
+      <h2 class="head" id="contact-title">BUILD THE FORM<br>THE IDEA REQUIRES.</h2>
+      <p class="body">MARS works from Paris, internationally, with artists, institutions and organisations whose question needs more than a conventional output.</p>
+      <div class="contact-links">
+        <a href="mailto:martial.foe@gmail.com">EMAIL →</a>
+        <a href="https://fr.linkedin.com/in/martial-foe-946041378" target="_blank" rel="noopener noreferrer">LINKEDIN →</a>
+        <a href="https://ifah-inst.pages.dev/" target="_blank" rel="noopener noreferrer">SOMA / IFAH →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>MARS · CREATIVE PRACTICE</span>
+  <span>PARIS · WORKING INTERNATIONALLY · 2026</span>
+</footer>
+</body>
+</html>
