@@ -74,6 +74,26 @@
     "year": "LIVE"
   },
   {
+    "route": "lobster",
+    "layout": "photo",
+    "index": "I·03",
+    "territory": "SPACE",
+    "title": "LOBSTER",
+    "description": "LOBSTER — a recording studio designed as a listening environment.",
+    "subtitle": "A recording studio designed as a listening environment.",
+    "meta": "PARIS · ACOUSTICS · LIGHT · HOSPITALITY",
+    "visual": "lobster",
+    "image": "/assets/project/lobster-piano.jpeg",
+    "imageAlt": "Grand piano in the Lobster recording studio listening room.",
+    "secondaryImage": "/assets/project/lobster-lounge.jpeg",
+    "secondaryImageAlt": "Lounge and control room inside the Lobster recording studio.",
+    "backHash": "lobster",
+    "bodyOne": "Lobster was conceived as a place for attention, conversation and long creative sessions. A physical instrument built through acoustics, light, materials and hospitality.",
+    "externalUrl": "https://www.instagram.com/lobster_creative_sound/",
+    "externalLabel": "VIEW LOBSTER ARCHIVE ↗",
+    "year": "PARIS"
+  },
+  {
     "route": "ramification",
     "index": "S·03",
     "territory": "SIGNAL",

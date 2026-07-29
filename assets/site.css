@@ -77,8 +77,10 @@ img,svg{display:block;max-width:100%}
 .reaction-sound{background:repeating-radial-gradient(circle at 52% 55%,transparent 0 15px,rgba(35,44,115,.55) 16px 17px,transparent 18px 29px)}
 .reaction-place path,.reaction-place circle{fill:none;stroke:var(--green);stroke-width:1.2}
 .reaction-place circle{fill:var(--green)}
-.reaction-signal path{fill:none;stroke:var(--indigo);stroke-width:1.15}
-.reaction-signal circle{fill:var(--indigo)}
+.reaction-lobster{inset:16% 0 auto 34%;width:74%;height:48%;background:
+  linear-gradient(90deg,rgba(232,226,214,.9),rgba(232,226,214,.05)),
+  url("/assets/project/lobster-lounge.jpeg") center/cover no-repeat;
+  filter:saturate(.62);opacity:.24}
 
 .practice-journey{display:grid;grid-template-columns:minmax(250px,.38fr) minmax(0,1fr);border-bottom:1px solid var(--ink)}
 .practice-sticky{position:sticky;top:64px;height:calc(100svh - 64px);padding:clamp(70px,8vw,120px) clamp(30px,5vw,84px) 54px var(--gutter);align-self:start;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--ink)}
@@ -100,12 +102,8 @@ img,svg{display:block;max-width:100%}
 .arche-reading span{display:block;color:var(--green);font-size:8px;letter-spacing:.16em}
 .arche-reading strong{display:block;margin-top:9px;font-size:clamp(14px,1.7vw,21px);font-weight:400;line-height:1.35}
 @keyframes recognition{0%{opacity:.7;transform:scale(.45)}100%{opacity:0;transform:scale(1.7)}}
-.work-visual--signal{background:var(--void)}
-.work-visual--signal svg{position:absolute;inset:8%;width:84%;height:84%}
-.signal-lines path{fill:none;stroke:#6a6f8c;stroke-width:1}
-.signal-lines path:last-child{stroke:#283b8c}
-.signal-nodes circle{fill:#cbc6bc}
-.signal-nodes circle:nth-child(2n){fill:#3d55ad}
+.work-visual--lobster{background:#171311;border-color:#171311}
+.work-visual--lobster img{object-position:center 47%;filter:saturate(.82)}
 .work-copy{display:grid;grid-template-columns:120px minmax(160px,.55fr) minmax(230px,1fr);gap:24px;align-items:start;margin-top:34px}
 .work-copy h3{font-size:clamp(28px,4vw,54px);font-weight:400;line-height:1}
 .work-statement{max-width:42ch;color:var(--ink-dim);font-size:clamp(16px,1.8vw,21px);line-height:1.55}
@@ -125,6 +123,10 @@ img,svg{display:block;max-width:100%}
 a.archive-row:hover,a.archive-row:focus-visible{padding-left:14px;color:var(--indigo)}
 .archive-row>span:first-child,.archive-row>span:nth-child(3),.archive-row time{color:var(--ink-soft);font-size:9px;letter-spacing:.13em}
 .archive-row strong{font-size:clamp(16px,1.9vw,24px);font-weight:400}
+.research-note{display:grid;grid-template-columns:minmax(150px,.35fr) minmax(240px,1fr) auto;gap:clamp(24px,4vw,70px);align-items:start;margin-top:clamp(62px,8vw,110px);padding-top:24px;border-top:1px solid var(--ink)}
+.research-note h3{font-size:clamp(20px,2.8vw,36px);font-weight:400;line-height:1}
+.research-note p:not(.index-no){max-width:50ch;margin-top:14px;color:var(--ink-dim)}
+.research-note .textlink{margin-top:0}
 
 .synthesis{background:var(--indigo);color:var(--paper)}
 .synthesis .eyebrow{color:#aeb9ff}
@@ -132,6 +134,10 @@ a.archive-row:hover,a.archive-row:focus-visible{padding-left:14px;color:var(--in
 .synthesis h2 span{color:#b9bdd3}
 .synthesis-lines{margin-top:clamp(70px,9vw,130px);border-top:1px solid rgba(242,238,230,.34)}
 .synthesis-lines p{padding:18px 0;border-bottom:1px solid rgba(242,238,230,.24);font-size:clamp(13px,1.5vw,18px);letter-spacing:.1em}
+
+.about{min-height:66svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:var(--paper-deep)}
+.about h2{max-width:17ch;margin-top:32px;font-size:clamp(38px,6.5vw,88px);font-weight:400;line-height:1.02}
+.about .body{margin-top:42px;max-width:61ch;font-size:clamp(14px,1.5vw,18px)}
 
 .contact{min-height:86svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .contact h2{margin-top:32px;font-size:clamp(52px,8.8vw,126px);font-weight:400;line-height:.92}
@@ -171,6 +177,8 @@ a.archive-row:hover,a.archive-row:focus-visible{padding-left:14px;color:var(--in
   .work{min-height:0}
   .work-copy{grid-template-columns:92px 1fr}
   .work-statement,.work-copy .textlink{grid-column:2}
+  .research-note{grid-template-columns:1fr 1fr}
+  .research-note .textlink{grid-column:2}
 }
 @media(max-width:720px){
   .mast{min-height:58px}.wordmark small{display:none}.nav{display:none}.section-label{display:block}
@@ -187,6 +195,8 @@ a.archive-row:hover,a.archive-row:focus-visible{padding-left:14px;color:var(--in
   .archive-preview{min-height:240px;margin-top:40px}
   .archive-row{grid-template-columns:34px 1fr auto}
   .archive-row>span:nth-child(3){display:none}
+  .research-note{grid-template-columns:1fr}
+  .research-note .textlink{grid-column:1}
   .synthesis h2{font-size:clamp(38px,12vw,64px)}
   .form-grid{grid-template-columns:1fr}
   .foot{flex-direction:column}

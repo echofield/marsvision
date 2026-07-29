@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 const root = resolve(import.meta.dirname, "..");
 const output = resolve(root, "dist");
 const template = await readFile(resolve(root, "project-template.html"), "utf8");
+const photoTemplate = await readFile(resolve(root, "photo-project-template.html"), "utf8");
 const projects = JSON.parse(await readFile(resolve(root, "content/projects.json"), "utf8"));
 
 const escapeHtml = value => String(value)
@@ -26,6 +27,12 @@ const graph = [
 ].join("");
 
 function render(project) {
+  if (project.layout === "photo") {
+    return Object.entries(project).reduce(
+      (html, [key, value]) => html.replaceAll("{{" + key + "}}", escapeHtml(value)),
+      photoTemplate,
+    );
+  }
   const visualMarkup = project.image
     ? '<img src="' + escapeHtml(project.image) + '" alt="' + escapeHtml(project.imageAlt) + '">'
     : project.visual === "ramification" ? graph : "";

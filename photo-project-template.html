@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{description}}">
+  <meta name="theme-color" content="#181310">
+  <title>{{title}} · MARS</title>
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/fonts/plex-mono.css">
+  <link rel="stylesheet" href="/assets/project.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body data-visual="{{visual}}">
+  <header class="mast">
+    <a class="wordmark" href="/"><span>MARS</span><small>RESEARCH / INSTRUMENTS</small></a>
+    <a class="return" href="/#{{backHash}}" data-return-link>← RETURN TO PRACTICE</a>
+  </header>
+
+  <main class="photo-project">
+    <section class="photo-hero" aria-labelledby="project-title">
+      <img src="{{image}}" alt="{{imageAlt}}" width="4397" height="6595">
+      <div class="photo-hero-copy">
+        <p class="eyebrow">{{index}} · {{territory}}</p>
+        <h1 id="project-title">{{title}}</h1>
+        <p>{{subtitle}}</p>
+      </div>
+    </section>
+
+    <section class="photo-statement">
+      <p class="photo-index">01 / LISTENING ENVIRONMENT</p>
+      <div>
+        <p class="photo-lead">{{bodyOne}}</p>
+        <p class="photo-meta">{{meta}}</p>
+      </div>
+    </section>
+
+    <figure class="photo-secondary">
+      <img src="{{secondaryImage}}" alt="{{secondaryImageAlt}}" width="6477" height="4318">
+    </figure>
+
+    <section class="photo-destination">
+      <p class="eyebrow">ARCHIVE</p>
+      <a class="photo-external" href="{{externalUrl}}" target="_blank" rel="noopener noreferrer">{{externalLabel}}</a>
+      <a class="photo-return" href="/#{{backHash}}" data-return-link>← RETURN TO PRACTICE</a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>MARS · {{title}}</span>
+    <span>{{territory}} · {{year}}</span>
+  </footer>
+</body>
+</html>

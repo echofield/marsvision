@@ -92,7 +92,7 @@ if (field instanceof HTMLCanvasElement) {
   const context = field.getContext("2d");
   const hero = field.closest(".hero");
   const reading = document.querySelector("[data-field-reading]");
-  const labels = ["SOUND / FIELD", "PLACE / TRACE", "SIGNAL / CASE"];
+  const labels = ["SOUND / FIELD", "PLACE / TRACE", "SPACE / LISTENING"];
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const pointer = { x: .56, y: .48 };
   let width = 0;
@@ -235,7 +235,7 @@ if (field instanceof HTMLCanvasElement) {
   });
 
   document.querySelectorAll("[data-field-mode]").forEach(element => {
-    const nextMode = ["sound", "place", "signal"].indexOf(element.dataset.fieldMode);
+    const nextMode = ["sound", "place", "room"].indexOf(element.dataset.fieldMode);
     element.addEventListener("pointerenter", () => {
       targetMode = Math.max(0, nextMode);
       pointer.x = [.32, .5, .68][Math.max(0, nextMode)];
