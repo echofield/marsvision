@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{description}}">
+  <meta name="theme-color" content="#f2eee6">
+  <title>{{title}} · MARS</title>
+  <link rel="stylesheet" href="/assets/fonts/plex-mono.css">
+  <link rel="stylesheet" href="/assets/project.css">
+  <script src="/assets/site.js" defer></script>
+</head>
+<body data-visual="{{visual}}">
+  <header class="mast">
+    <a class="wordmark" href="/"><span>MARS</span><small>RESEARCH / INSTRUMENTS</small></a>
+    <a class="return" href="/#{{backHash}}" data-return-link>← RETURN TO PRACTICE</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">{{index}} · {{territory}}</p>
+        <h1>{{title}}</h1>
+        <p class="hero-sub">{{subtitle}}</p>
+        <p class="hero-meta">{{meta}}</p>
+      </div>
+      <figure class="project-visual {{visualClass}}" data-image="{{imageType}}" data-word="{{visualWord}}">
+        {{visualMarkup}}
+        <span class="scroll-note">MOVE THROUGH THE PROJECT</span>
+      </figure>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-grid">
+        <p class="chapter-index">01 / THE QUESTION</p>
+        <div>
+          <h2>{{question}}</h2>
+          <div class="chapter-copy">
+            <p>{{bodyOne}}</p>
+            <p>{{bodyTwo}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="field-note">
+      <p class="eyebrow">{{fieldEyebrow}}</p>
+      <h2>{{fieldTitle}}</h2>
+      <div class="field-modes">
+        {{modes}}
+      </div>
+    </section>
+
+    <section class="chapter">
+      <div class="chapter-grid">
+        <p class="chapter-index">03 / WHAT IT ENABLES</p>
+        <div>
+          <h2>{{enablesTitle}}</h2>
+          <ol class="enables">{{enables}}</ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="destination">
+      <p class="eyebrow">NEXT THRESHOLD</p>
+      <h2>{{destinationTitle}}</h2>
+      <p>{{destinationCopy}}</p>
+      <div class="destination-actions">
+        {{externalLink}}
+        <a class="return-bottom" href="/#{{backHash}}" data-return-link>← RETURN TO PRACTICE</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>MARS · {{title}}</span>
+    <span>{{territory}} · {{year}}</span>
+  </footer>
+</body>
+</html>
